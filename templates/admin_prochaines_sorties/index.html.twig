@@ -1,0 +1,45 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Prochaines Sorties{% endblock %}
+
+{% block body %}
+    <h1>Prochaines Sorties</h1>
+    <a href="{{ path('admin_prochaines_sorties_new') }}" class="btn btn-success">Nouveau</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Id</th>
+                <th>Titre</th>
+                {# <th>Description</th> #}
+                <th>Mise à jour le</th> 
+                {# <th>Detail</th> #}
+                {# <th>Video</th>
+                <th>ImageArticle</th> #}
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for prochaines_sorty in prochaines_sorties %}
+            <tr>
+                <td><img src="{{asset('images/prochaine_sortie/' ~ prochaines_sorty.imageName) }}" alt="" class="img-list"></td>
+                <td>{{ prochaines_sorty.id }}</td>
+                <td>{{ prochaines_sorty.titre }}</td>
+                {# <td>{{ prochaines_sorty.description }}</td> #}
+                <td>{{ prochaines_sorty.updatedAt ? prochaines_sorty.updatedAt|date('d-m-Y H:i:s') : '' }}</td>
+                {# <td>{{ prochaines_sorty.detail }}</td> #}
+                {# <td>{{ prochaines_sorty.video }}</td> #}
+                {# <td>{{ prochaines_sorty.imageArticle }}</td> #}
+                <td class="text-end">
+                    <a href="{{ path('admin_prochaines_sorties_show', {'id': prochaines_sorty.id}) }}" class="btn btn-primary me-2"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('admin_prochaines_sorties_edit', {'id': prochaines_sorty.id}) }}" class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune entrée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

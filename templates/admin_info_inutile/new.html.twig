@@ -1,0 +1,12 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %} Nouvelle Info Inutile{% endblock %}
+
+{% block body %}
+    <a href="{{ path('admin_info_inutile_index') }}" class="btn btn-dark mb-3">Retour à la liste</a>
+    <h1> Nouvelle Info Inutiles</h1>
+
+    {{ include('admin_info_inutile/_form.html.twig') }}
+
+    
+{% endblock %}

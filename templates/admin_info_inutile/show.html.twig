@@ -1,0 +1,47 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}InfoInutile{% endblock %}
+
+{% block body %}
+    <a href="{{ path('admin_info_inutile_index') }}" class="btn btn-dark mb-3">Retour à la liste</a>
+    <h1>InfoInutile</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ info_inutile.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ info_inutile.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ info_inutile.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ info_inutile.imageName }}</td>
+            </tr>
+            <tr>
+                <th>Mise à jour le</th>
+                <td>{{ info_inutile.updatedAt ? info_inutile.updatedAt|date('d-m-Y H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Detail</th>
+                <td>{{ info_inutile.detail }}</td>
+            </tr>
+            <tr>
+                <th>ImageArticle</th>
+                <td>{{ info_inutile.imageArticle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between align-items-end">
+    {{ include('admin_info_inutile/_delete_form.html.twig') }}
+    <a href="{{ path('admin_info_inutile_edit', {'id': info_inutile.id}) }}" class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
+    </div>
+
+{% endblock %}

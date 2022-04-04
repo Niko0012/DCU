@@ -1,0 +1,97 @@
+<nav id="sidebar" class="sidebar js-sidebar">
+    <div class="sidebar-content js-simplebar">
+        <a class="sidebar-brand" href="{{ path('admin') }}">
+            <span class="align-middle">
+                DCU Admin
+            </span>
+        </a>
+        <ul class="sidebar-nav">
+            <li class="sidebar-item active">
+                <a class="sidebar-link" href="{{ path('admin') }}">
+                    <i class="align-middle" data-feather="sliders"></i>
+                    <span class="align-middle">
+                        Dashboard
+                    </span>
+                </a>
+            </li>
+            <li class="sidebar-header">
+                Utilisateurs
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="pages-profile.html">
+                    <i class="align-middle" data-feather="user"></i>
+                    <span class="align-middle">
+                        Profil
+                    </span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="pages-sign-in.html">
+                    <i class="align-middle" data-feather="log-in"></i>
+                    <span class="align-middle">
+                        Sign In
+                    </span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="pages-sign-up.html">
+                    <i class="align-middle" data-feather="user-plus"></i>
+                    <span class="align-middle">
+                        Sign Up
+                    </span>
+                </a>
+            </li>
+            <li class="sidebar-header">
+                Contenus
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="ui-buttons.html">
+                    <i class="align-middle" data-feather="home"></i>
+                    <span class="align-middle">
+                        Accueil
+                    </span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_news_index') }}">
+                    <i class="align-middle" data-feather="pen-tool"></i>
+                    <span class="align-middle">
+                        News
+                    </span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_prochaines_sorties_index') }}">
+                    <i class="align-middle" data-feather="film"></i>
+                    <span class="align-middle">
+                        Prochaines sorties
+                    </span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_podcast_index') }}">
+                    <i class="align-middle" data-feather="mic"></i>
+                    <span class="align-middle">
+                        Podcast
+                    </span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_info_inutile_index') }}">
+                    <i class="align-middle" data-feather="info"></i>
+                    <span class="align-middle">
+                        Info inutile
+                    </span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="{{ path('admin_making_of_index') }}">
+                    <i class="align-middle" data-feather="video"></i>
+                    <span class="align-middle">
+                        Making of
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{{ info.titre }}
+{% endblock %}
+{% block body %}
+<div class="container d-flex flex-column">
+        <h1 class=" py-15">{{info.titre}}</h1>
+        {#  #}
+        <div class="p2 pt text-center">{{info.description|raw}}</div>
+        <div><img src="{{asset('images/article_info/' ~ info.imageArticle)}} " class="img-fluid" alt="">
+        </div>
+        <div class="p2 pt">{{info.detail|raw}}</div>
+    </div>
+            {# Zone pour laisser un commentaire #}
+    <div class="container">
+    <div class="row">
+        {# <h2 class="text-black">Laisser un commentaire</h2> #}
+        <p class="p3">Merci de vous enregistrer pour pouvoir laisser un commentaire</p>
+        {# <textarea name="commentaire" id="commentaire" cols="20" rows="10"></textarea> #}
+        {{ form_start(form)}}
+            {{ form_row(form.contenu)}}
+        <input id="envoyer" type="submit" value="Envoyer" />
+        {{ form_end(form)}}
+    </div>
+</div>
+{% endblock %}

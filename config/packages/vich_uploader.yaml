@@ -1,0 +1,28 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        infos:
+            uri_prefix: /images/info_inutile
+            upload_destination: '%kernel.project_dir%/public/images/info_inutile'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        makings:
+            uri_prefix: /images/making_of
+            upload_destination: '%kernel.project_dir%/public/images/making_of'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        news:
+            uri_prefix: /images/news
+            upload_destination: '%kernel.project_dir%/public/images/news'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        podcasts:
+            uri_prefix: /images/podcast
+            upload_destination: '%kernel.project_dir%/public/images/podcast'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        sorties:
+            uri_prefix: /images/prochaine_sortie
+            upload_destination: '%kernel.project_dir%/public/images/prochaine_sortie'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        carousel:
+            uri_prefix: /images/carousel
+            upload_destination: '%kernel.project_dir%/public/images/carousel'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

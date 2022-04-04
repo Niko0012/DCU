@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Accueil {% endblock %}
+
+{% block body %}
+{# insertion du carousel #}
+<div class="container">
+    <h2 class="pt-5 ps-4">News</h2>
+    <div class="row">
+    <div id="carouselExampleControls" class=" w-50 carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+    {% for carousel in carousels %}
+        {% if loop.index0 == 0 %}
+        {% set active = "active" %}
+        {% else %}
+        {% set active = "" %}
+        {% endif %}
+        <div class="carousel-item {{ active }}">
+            <img src="{{ asset('images/carousel/' ~ carousel.imageName ) }}" class="d-block w-100" alt="" class="img-fluid">
+        </div>
+    {% endfor %}
+    </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button>
+        {# </div> #}
+
+    </div>
+    </div>
+</div>
+
+{# Insertion de 3 blocs pour les prochaines sorties #}
+<div class="container d-flex flex-column ">
+        <h2 class="pt-5 ps-4">Prochaine sortie</h2>
+        {% if prochainesSorties is not null and prochainesSorties|length > 0 %}
+        <div class="row">
+            {% for sortie in prochainesSorties %}
+        <div class="col-md-4 d-flex">
+                <div class="card bg-transparent d-flex flex-wrap">
+                    <div class="card-body">
+                        <a href="{{ path('article_sortie', {"id": sortie.id}) }}">
+                            <img src="{{ asset('images/prochaine_sortie/' ~ sortie.imageName) }} " class="card-img-top" alt="">
+                        </a>
+                <h3 class="card-title">{{ sortie.titre }}</h3>
+{#le |u.truncate(50, '...') sert pour limiter le nombre de caractère dans la description #}
+                        <p class="card-text p2">{{ sortie.description|u.truncate(25, '...')  }}</p>
+                    </div>
+                <a href="{{ path('article_sortie', {"id": sortie.id}) }} " class="btn btn-dark w-100 ">voir l'article</a>
+                </div>
+        </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+</div>
+
+{# Insertion de 3 blocs pour les infos inutiles #}
+<div class="container d-flex flex-column">
+        <h2 class="pt-5 ps-3">Infos inutiles</h2>
+        {% if infoInutile is not null and infoInutile|length > 0 %}
+        <div class="row">
+            {% for info in infoInutile %}
+        <div class=" col-md-4 d-flex">
+            {# <div class="card-group"> #}
+                <div class="card bg-transparent">
+                    <a href="{{ path('article_info', {"id": info.id}) }}">
+                        <img src="{{ asset('images/info_inutile/' ~ info.imageName) }} " class="card-img-top" alt="Le seigneur des anneux">
+                    </a>
+                    <div class="card-body">
+                        <h3 class="card-title">{{ info.titre }}</h3>
+{#le |u.truncate(50, '...') sert pour limiter le nombre de caractère dans la description #}
+                        <p class="card-text p2">{{ info.description|u.truncate(12, '...')  }}</p>
+                    </div>
+                <a href="{{ path('article_info', {"id": info.id}) }} " class="btn btn-dark w-100 ">voir l'article</a>
+                
+                </div>
+            {# </div> #}
+        </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+</div>
+{% endblock %}

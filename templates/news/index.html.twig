@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} News {% endblock %}
+
+{% block body %}
+<div class="container d-flex flex-column">
+        <h1 class=" py-15">News</h1>
+        {% if news is not null and news|length > 0 %}
+        <div class="row">
+            {% for new in news %}
+        <div class=" col-md-4 d-flex">
+            {# <div class="card-group"> #}
+                <div class="card bg-transparent d-flex flex-wrap">
+                    <a href="{{ path('article_news', {"id": new.id}) }}">
+                        <img src="{{ asset('images/news/' ~ new.imageName) }} " class="card-img-top" alt="">
+                    </a>
+                    <div class="card-body">
+                        <h3 class="card-title">{{ new.titre }}</h3>
+{#le |u.truncate(50, '...') sert pour limiter le nombre de caractère dans la description #}
+                        <p class="card-text p2">{{ new.description|u.truncate(25, '...')  }}</p>
+                    </div>
+                <a href="{{ path('article_news', {"id": new.id}) }} " class="btn btn-dark w-100 align-self-end">voir l'article</a>
+                </div>
+            {# </div> #}
+        </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+</div>
+
+{% endblock %}

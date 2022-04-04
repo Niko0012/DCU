@@ -1,0 +1,43 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Info Inutile{% endblock %}
+
+{% block body %}
+    <h1>Info Inutile</h1>
+    <a href="{{ path('admin_info_inutile_new') }}" class="btn btn-success">Nouveau</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>    
+                <th>Description</th>
+                {# <th>ImageName</th> #}
+                {# <th>UpdatedAt</th> #}
+                {# <th>Detail</th> #}
+                {# <th>ImageArticle</th> #}
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for info_inutile in info_inutiles %}
+            <tr>
+                <td>{{ info_inutile.id }}</td>
+                <td>{{ info_inutile.titre }}</td>    
+                <td>{{ info_inutile.description }}</td>
+                {# <td>{{ info_inutile.imageName }}</td> #}
+                {# <td>{{ info_inutile.updatedAt ? info_inutile.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                {# <td>{{ info_inutile.detail }}</td> #}
+                {# <td>{{ info_inutile.imageArticle }}</td> #}
+                <td class="text-end">
+                    <a href="{{ path('admin_info_inutile_show', {'id': info_inutile.id}) }}" class="btn btn-primary me-2"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('admin_info_inutile_edit', {'id': info_inutile.id}) }}" class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune entrée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

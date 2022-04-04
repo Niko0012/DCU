@@ -1,0 +1,45 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Podcast{% endblock %}
+
+{% block body %}
+    <h1>Podcast</h1>
+    <a href="{{ path('admin_podcast_new') }}" class="btn btn-success">Nouveau</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                {# <th>Description</th> #}
+                {# <th>ImageName</th> #}
+                {# <th>UpdatedAt</th> #}
+                {# <th>Detail</th> #}
+                {# <th>Video</th> #}
+                {# <th>ImageArticle</th> #}
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for podcast in podcasts %}
+            <tr>
+                <td>{{ podcast.id }}</td>
+                <td>{{ podcast.titre }}</td>
+                {# <td>{{ podcast.description }}</td> #}
+                {# <td>{{ podcast.imageName }}</td> #}
+                {# <td>{{ podcast.updatedAt ? podcast.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                {# <td>{{ podcast.detail }}</td> #}
+                {# <td>{{ podcast.video }}</td> #}
+                {# <td>{{ podcast.imageArticle }}</td> #}
+                <td class="text-end">
+                    <a href="{{ path('admin_podcast_show', {'id': podcast.id}) }}" class="btn btn-primary me-2"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('admin_podcast_edit', {'id': podcast.id}) }}" class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucune entrée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

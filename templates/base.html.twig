@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# FONT AWESOME #}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        {# IMPORT BOOSTRAP #}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        {# CUSTOM CSS #}
+        <link rel="stylesheet" href="{{ asset('css/style-front.css') }}">
+        {% block stylesheets %}{% endblock %}
+
+    </head>
+    <body> 
+
+            <!-- LOGO -->
+            <!-- dimension du logo 1920*538 Pixel -->
+            
+        <div>
+            <a href="{{path('home')}}">
+                    <img src="{{asset('images/dcu-logo.jpg') }}"  class="img-fluid"  alt="">
+            </a>
+        </div>
+            <!-- FIN LOGO -->
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="{{ path('home') }}">Accueil</a>
+                <a class="nav-link" href="{{ path('news') }}">News</a>
+                <a class="nav-link" href="{{ path('prochaine_sortie') }}">Prochaines sorties</a>
+                <a class="nav-link" href="{{ path('podcast') }}">Podcast</a>
+                <a class="nav-link" href="{{ path('info_inutile') }}">Info inutile</a>
+                <a class="nav-link" href="{{ path('making_of') }}">Making Of</a>
+                {# Si on est pas connecté on met en place un bouton de connexion sinon on met en place un bouton de déconnexion #}
+                {% if is_granted('ROLE_USER') %}
+                <div class="d-flex">
+                {# Ajout de mon compte quand on est connecté #}
+                <a class="nav-link" href="{{ path('profile')}}">Mon compte</a>
+                {# Bouton dynamique connexion et déconnexion #}
+                <a class="nav-link" href="{{path('app_logout') }}">Déconnexion</a>
+                </div>
+                {% else %}
+                <a class="nav-link" href="{{path('app_login') }}">Connexion</a>
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </nav>
+        <!-- FIN NAVBAR -->
+
+            {% block body %}{% endblock %}
+
+            <!-- FOOTER -->
+            <div class="container-fluid ">
+            <footer class="text-white bg-grey py-15">
+            <div class="row5">
+                <div class="card-body col-md-6">
+                    <h4>Contact</h4>
+                    <p class="card-text font">Pour me contacter utiliser le lien de FaceBook</p>
+                    <p class="card-text font">Suivez-nous sur les réseaux !</p>
+                    <!-- insertion des lien pour les réseaux sociaux -->
+                    <div class="list-inline b" style="font-size: 2rem; color-white">
+                        <!--  dans le href mettre le lien de l'url du réseau -->
+                        <a href="https://www.facebook.com/DamienDCU/"><i class="fab fa-facebook fa-xs"></i>
+                    </a>
+                        <a href="https://www.instagram.com/damien_cinematic_universe/?hl=fr"><i class="fab fa-instagram fa-xs"></i>
+                    </a>
+                        <a href="https://twitter.com/damien_dcu?lang=ga"><i class="fab fa-twitter fa-xs"></i>
+                    </a>
+                        <a href="https://www.youtube.com/channel/UCyyvBx7oQ0zvKmBeU-XBtxg"><i class="fab fa-youtube fa-xs"></i>
+                    </a>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <h4> Abonnez-vous à la newsletter!</h4>
+                    <form method="post" action="traitement.php">
+                        <p class="text">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" name="prenom" id="prenom"/>
+                        </p>
+                        <p class="text">
+                            <label for="mail">E-mail*</label>
+                            <input type="text" name="mail" id="mail"/>
+                        </p>
+                        <p class="card-text  font">Nous gardons vos données privées et ne les partageons qu’avec les tierces parties qui rendent ce service possible. Lire notre politique de confidentialité.
+                        <br>
+                        <input type="submit" value="envoyer"/></p>
+                    </form>
+                </div>
+            </div>
+            </footer>
+        </div>
+            <p class="p4 text-center">Copyrigh &copy; All rights reserved. | CoverNews by AF themes.</p>
+            <!-- FIN FOOTER -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>
+
+
+

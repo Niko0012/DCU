@@ -1,0 +1,51 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}MakingOf{% endblock %}
+
+{% block body %}
+    <a href="{{ path('admin_making_of_index') }}" class="btn btn-dark mb-3">Retour à la liste</a>
+    <h1>MakingOf</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ making_of.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ making_of.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ making_of.description }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ making_of.imageName }}</td>
+            </tr>
+            <tr>
+                <th>Mise à jour le</th>
+                <td>{{ making_of.updatedAt ? making_of.updatedAt|date('d-m-Y H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Detail</th>
+                <td>{{ making_of.detail }}</td>
+            </tr>
+            <tr>
+                <th>Video</th>
+                <td>{{ making_of.video }}</td>
+            </tr>
+            <tr>
+                <th>ImageArticle</th>
+                <td>{{ making_of.imageArticle }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between align-items-end">
+    {{ include('admin_making_of/_delete_form.html.twig') }}
+    <a href="{{ path('admin_making_of_edit', {'id': making_of.id}) }}" class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
+    </div>
+
+{% endblock %}

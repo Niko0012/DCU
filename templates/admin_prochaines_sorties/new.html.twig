@@ -1,0 +1,11 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Nouvelle Prochaine Sortie{% endblock %}
+
+{% block body %}
+<a href="{{ path('admin_prochaines_sorties_index') }}" class="btn btn-dark mb-3">Retour à la liste</a>
+    <h1>Nouvelle Prochaine Sortie</h1>
+
+    {{ include('admin_prochaines_sorties/_form.html.twig') }}
+
+{% endblock %}

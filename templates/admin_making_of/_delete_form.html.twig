@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('admin_making_of_delete', {'id': making_of.id}) }}" onsubmit="return confirm('etes-vous sur de vouloir supprimer ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ making_of.id) }}">
+    <button class="btn btn-danger mt-3"><i  class="align-middle" data-feather="trash-2"></i></button>
+</form>

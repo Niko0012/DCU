@@ -1,0 +1,45 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Making Of{% endblock %}
+
+{% block body %}
+    <h1>Makin gOf</h1>
+    <a href="{{ path('admin_making_of_new') }}" class="btn btn-success">Nouveau</a>
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Image</th> #}
+                <th>Id</th>
+                <th>Titre</th>
+                {# <th>Description</th> #}
+                {# <th>Mise à jour le</th> #}
+                {# <th>Detail</th> #}
+                {# <th>Video</th> #}
+                {# <th>ImageArticle</th> #}
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for making_of in making_ofs %}
+            <tr>
+                {# <td><img src="{{asset('images/making_of/' ~making_of.imageName) }}" alt="" class="img-list"></td> #}
+                <td>{{ making_of.id }}</td>
+                <td>{{ making_of.titre }}</td>
+                {# <td>{{ making_of.description }}</td> #}
+                {# <td>{{ making_of.updatedAt ? making_of.updatedAt|date('d-m-Y H:i:s') : '' }}</td> #}
+                {# <td>{{ making_of.detail }}</td> #}
+                {# <td>{{ making_of.video }}</td> #}
+                {# <td>{{ making_of.imageArticle }}</td> #}
+                <td class="text-end">
+                    <a href="{{ path('admin_making_of_show', {'id': making_of.id}) }}" class="btn btn-primary me-2"><i class="align-middle" data-feather="eye"></i></a>
+                    <a href="{{ path('admin_making_of_edit', {'id': making_of.id}) }}" class="btn btn-success"><i class="align-middle" data-feather="edit-2"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucune entrée trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

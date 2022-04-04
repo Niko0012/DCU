@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{{ of.titre }}
+{% endblock %}
+{% block body %}
+<div class="container">
+        <h1 class=" py-15">{{of.titre}}</h1>
+        <div class="p2 pt">{{of.description|raw}}</div>
+        <div><img src="{{asset('images/article_of/' ~ of.imageArticle)}} " class="img-fluid" alt="">
+        </div>
+        <div class="p2 pt">{{of.detail|raw}}</div>
+    </div>
+<!-- Lien youtube -->
+    <div class="video-responsive container">
+        <iframe width="560" height="315" src="{{of.video}}" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+            {# Zone pour laisser un commentaire #}
+    <div class="container">
+        <div class="row">
+            {# <h2 class="text-black">Laisser un commentaire</h2> #}
+            <p class="p3">Merci de vous enregistrer pour pouvoir laisser un commentaire</p>
+            {# <textarea name="commentaire" id="commentaire" cols="20" rows="10"></textarea> #}
+            {{ form_start(form)}}
+            {{ form_row(form.contenu)}}
+            <input id="envoyer" type="submit" value="Envoyer" />
+            {{ form_end(form)}}
+        </div>
+    </div>
+{% endblock %}

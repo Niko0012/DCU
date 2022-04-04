@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{{ new.titre }}
+{% endblock %}
+{% block body %}
+<div class="container">
+        <h1 class=" py-15">{{new.titre}}</h1>
+        <div class="p2 pt">{{new.description|raw}}</div>
+        <div><img src="{{asset('images/article_news/' ~ new.imageArticle)}} " class="img-fluid" alt="">
+        </div>
+        {# Le |raw me sert à l'interpretation des balise html qui sont  #}
+        <div class="p2 pt">{{new.detail|raw}}</div>
+    </div>
+<!-- Lien youtube -->
+    <div class="video-responsive container">
+        <iframe width="560" height="315" src="{{new.video}}" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+            {# Zone pour laisser un commentaire #}
+    <div class="container">
+        <div class="row">
+            {# <h2 class="text-black">Laisser un commentaire</h2> #}
+            <p class="p3">Merci de laisser un commentaire</p>
+            {#  Condition pour que l'utilisateur puisse laisser un message  #}
+            {# {%  if app.user %} #}
+            {# {%else %} #}
+            {# merci de vous enregistrer #}
+            {# {% endif %} #}
+            {# <textarea name="commentaire" id="commentaire" cols="20" rows="10"></textarea> #}
+            {{ form_start(form)}}
+            {{ form_row(form.contenu)}}
+            <input id="envoyer" type="submit" value="Envoyer" />
+            {{ form_end(form)}}
+        </div>
+    </div>
+{% endblock %}

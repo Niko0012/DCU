@@ -1,0 +1,281 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* import de la typo de google font pour les différents titre */
+
+@import url('https://fonts.googleapis.com/css2?family=Meow+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap');
+
+
+/* ----------Typo et background du site------------- */
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    background: url('../images/bg1.jpg') no-repeat;
+    background-size: cover;
+}
+
+
+/* -----------------NavBar----------------- */
+/* navbar au milieu */
+.collapse {
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+
+/* style pour la color de la navbar */
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+    color:white;
+}
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+    color: beige;
+}
+
+/* Modifier la couleur de la nav bar */
+.bg{
+    background-color: rgb(63, 63, 63);
+}
+
+/* Carousel pour qui s'adapte correctement avec les @media query a tous type d'écran */
+#carouselExampleControls{
+    width:100%;
+}
+
+/* -------------Encradrer des img et le texte------------------- */
+/*  pour enlever l'encadrer de bootstrap */
+.card {
+    border: none;
+    padding: 1rem;
+}
+
+/* Titre au milieu  */
+.py-15{
+    padding-top:15px;
+    padding-bottom:15px;
+    margin: 15px;
+    text-align: center;
+    font-family: "Meow Script', cursive";
+    font-size: 60px;
+}
+
+.row{
+    margin-top: 30px;
+}
+
+/* desciption du film */
+.p2{
+    color:white;
+    font-size: 1.4rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/*  titre des film */
+h3{
+    color: black;
+    font-family: "Meow Script', cursive";
+    font-size: 1.5rem;
+    padding-bottom: 1px;
+    margin-bottom: 1px;
+    
+}
+
+/* -------------------------Article--------------------------------- */
+
+h1{
+    font-family: "Meow Script', cursive";
+    }
+    
+    .container{
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .pt{
+        padding-top: 30px;
+    }
+    
+    .py-15{
+        padding-top:15px;
+        padding-bottom:15px;
+    }
+    
+    .text-white{
+        color:white;
+    } 
+    
+    .text-black{
+        color: black;
+    } 
+    
+    p{
+        color:white;
+        font-size: 1.5rem;
+    }
+    
+    /* --------------------Vidéo importée-------------- */
+    
+    /* insertion d'une vidéo */
+    .video-responsive{
+        width: 100%;
+        align-items: center;
+        margin-top: 40px;
+        padding-top: 40px;
+        margin-bottom: 40px;
+    }
+    
+    /* Zone commentaire */
+    
+    h2{
+        font-family: "Meow Script', cursive";
+    }
+    
+    .p3{
+        margin-top: 20px;
+        align-items: center;
+        font-size: 1.1rem;
+    }
+    
+    #envoyer{
+        padding: 5px;
+        width: 20%;
+        margin-top: 15px;
+        margin-bottom: 30px;
+        /* margin-left: 450px; */
+    }
+    
+    #commentaire{
+        width: 100%;
+    }
+
+
+/* -------------------------Footer---------------------------------- */
+
+/*contact et Newletter */
+h4{
+    font-size: 1.4rem;
+}
+
+.footer{
+    display: flex;
+    background-color: rgb(63, 63, 63);
+    /* margin-bottom:15px; */
+    text-align: center;
+    text-align: justify;
+    padding: 100px 200px;
+}
+
+.fa{
+color: white;
+font-size: 1.3rem;
+padding-left: 30px;
+}
+
+.py-15{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+.row5{
+    background-color: rgb(63, 63, 63);
+    display: flex;
+} 
+
+/* Footer pour la couleur du texte et la taille  */
+.font{
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* taile pour le formulaire */
+.text{
+    font-size: 1.3rem;
+}
+
+
+/* Texte copyright */
+.p4{
+    color: white;
+    font-size: 1.4rem;
+    font-family: "Meow Script', cursive";
+}
+
+
+
+/* -------------------------@média query--------------------------- */
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    footer{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #carouselExampleControls{
+        width:100%;
+    }
+    .ph{
+        padding-left: 35px;
+    }
+    .fa{
+        color: white;
+        font-size: 1.3rem;
+        justify-content: space-between;
+    }
+    .video-resposive{
+        width: 100%;
+    }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    footer{
+        display: block;
+    }
+    #carouselExampleControls{
+        width:50%;
+    }
+    .video-resposive{
+        width: 50%;
+    }
+}
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px){
+    footer{
+        display: block;
+    }
+    #carouselExampleControls{
+        width:50%;
+    }
+    .video-resposive{
+        width: 50%;
+    }
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px){
+    footer{
+        display: block;
+    }
+    #carouselExampleControls{
+        width:50%;
+    }
+    .video-resposive{
+        width: 50%;
+    }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px){
+    footer{
+        display: block;
+    }
+    #carouselExampleControls{
+        width:50%;
+    }
+    .video-resposive{
+        width: 50%;
+    }
+}

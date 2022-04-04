@@ -1,0 +1,12 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Nouveau Making Of{% endblock %}
+
+{% block body %}
+    <a href="{{ path('admin_making_of_index') }}" class="btn btn-dark mb-3">retour à la liste</a>
+    <h1>Nouveau Making Of</h1>
+
+    {{ include('admin_making_of/_form.html.twig') }}
+
+    
+{% endblock %}

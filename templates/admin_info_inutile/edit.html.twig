@@ -1,0 +1,13 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Modifier Info Inutile{% endblock %}
+
+{% block body %}
+    <a href="{{ path('admin_info_inutile_index') }}" class="btn btn-dark mb-3">Retour à la ligne</a>
+    <h1>Modifier Info Inutile</h1>
+
+    {{ include('admin_info_inutile/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+
+    {{ include('admin_info_inutile/_delete_form.html.twig') }}
+{% endblock %}

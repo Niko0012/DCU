@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Podcast {% endblock %}
+
+{% block body %}
+<div class="container d-flex flex-column">
+        <h1 class=" py-15">Podcasts</h1>
+        {% if podcasts is not null and podcasts|length > 0 %}
+        <div class="row">
+            {% for pod in podcasts %}
+        <div class="col-md-4 d-flex">
+            {# <div class="card-group"> #}
+                <div class="card bg-transparent d-flex flex-wrap">
+                    <a href="{{ path('article_podcast', {"id": pod.id}) }}">
+                        <img src="{{ asset('images/podcast/' ~ pod.imageName) }} " class="card-img-top" alt="">
+                    </a>
+                        <div class="card-body">
+                        <h3 class="card-title">{{ pod.titre }}</h3>
+{#le |u.truncate(50, '...') sert pour limiter le nombre de caractère dans la description #}
+                        <p class="card-text p2">{{ pod.description|u.truncate(50, '...')  }}</p>
+                    </div>
+                <a href="{{ path('article_podcast', {"id": pod.id}) }} " class="btn btn-dark w-100 ">voir l'article</a>
+                </div>
+            {# </div> #}
+        </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+</div>
+        
+{% endblock %}
